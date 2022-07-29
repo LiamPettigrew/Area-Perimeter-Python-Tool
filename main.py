@@ -10,17 +10,36 @@ def main():
   print()
   print(" - Rectangle \n - Triangle \n - Circle \n - Parallelogram")
   whichShape = input()
+  # COMMIT 3 - Added the dimension selections to every individual shape, which correlates to the
+  # properties of the particular shape. Program breaks after dimensions are input.
   if whichShape == "Rectangle" or whichShape == "rectangle":
-    print("Please enter the dimensions to this rectangle.")
+    print("RECTANGLE DIMENSION SELECTION")
+    print()
+    rectangleHeight = input("Please enter the height: ")
+    rectangleWidth = input("Please enter the width: ")
     
   elif whichShape == "Triangle" or whichShape == "triangle":
-    print("Please enter the dimensions to this triangle.")
+    print("TRIANGLE DIMENSION SELECTION")
+    print()
+    triangleSide1 = input("Please enter the length of side 1: ")
+    triangleSide2 = input("Please enter the length of side 2: ")
+    triangleSide3 = input("Please enter the length of side 3: ")
+    triangleBase = input("Please enter the width of the base: ")
+    triangleHeight = input("Please enter the length of the height: ")
     
   elif whichShape == "Circle" or whichShape == "circle":
-    print("Please enter the dimensions to this circle.")
+    print("CIRCLE DIMENSION SELECTION")
+    print()
+    circleRadius = input("Please enter the radius: ")
     
   elif whichShape == "Parallelogram" or whichShape == "parallelogram":
-    print("Please enter the dimensions to this parallelogram.")
+    print("PARALLELOGRAM DIMENSION SELECTION")
+    print()
+    parallelogramSide1 = input("Please enter the length of side 1: ")
+    parallelogramSide2 = input("Please enter the length of side 2: ")
+    parallelogramBase = input("Please enter the width of the base: ")
+    parallelogramHeight = input("Please enter the length of the height: ")
+    
     
   else:
     print("This is not a valid shape. Please try again.")
