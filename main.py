@@ -19,13 +19,34 @@ def main():
     rectangleWidth = input("Please enter the width: ")
     
   elif whichShape == "Triangle" or whichShape == "triangle":
-    print("TRIANGLE DIMENSION SELECTION")
-    print()
-    triangleSide1 = input("Please enter the length of side 1: ")
-    triangleSide2 = input("Please enter the length of side 2: ")
-    triangleSide3 = input("Please enter the length of side 3: ")
-    triangleBase = input("Please enter the width of the base: ")
-    triangleHeight = input("Please enter the length of the height: ")
+    def triangle():
+      print("TRIANGLE DIMENSION SELECTION")
+      print()
+      print("What do you wish to find out?")
+      print(" - Area")
+      print(" - Perimeter")
+      print(" - Both")
+      triangleSelection = input()
+      # COMMIT 4 - Added a more advanced triangle dimension selection to make it easier for the user.
+      # The user can now select if they are wanting to find out the area, perimeter, or both before entering the calculations.
+      if triangleSelection == "Area" or triangleSelection == "area":
+        triangleBase = input("Please enter the width of the base: ")
+        triangleHeight = input("Please enter the length of the height: ")
+      elif triangleSelection == "perimeter" or triangleSelection == "Perimeter":
+        triangleSide1 = input("Please enter the length of side 1: ")
+        triangleSide2 = input("Please enter the length of side 2: ")
+        triangleSide3 = input("Please enter the length of side 3: ")
+      elif triangleSelection == "both" or triangleSelection == "Both":
+        triangleSide1 = input("Please enter the length of side 1: ")
+        triangleSide2 = input("Please enter the length of side 2: ")
+        triangleSide3 = input("Please enter the length of side 3: ")
+        triangleBase = input("Please enter the width of the base: ")
+        triangleHeight = input("Please enter the length of the height: ")
+      else:
+        print("This is not a valid answer.")
+        triangle()
+    triangle()
+      
     
   elif whichShape == "Circle" or whichShape == "circle":
     print("CIRCLE DIMENSION SELECTION")
@@ -33,12 +54,30 @@ def main():
     circleRadius = input("Please enter the radius: ")
     
   elif whichShape == "Parallelogram" or whichShape == "parallelogram":
-    print("PARALLELOGRAM DIMENSION SELECTION")
-    print()
-    parallelogramSide1 = input("Please enter the length of side 1: ")
-    parallelogramSide2 = input("Please enter the length of side 2: ")
-    parallelogramBase = input("Please enter the width of the base: ")
-    parallelogramHeight = input("Please enter the length of the height: ")
+    def parallelogram():
+      print("PARALLELOGRAM DIMENSION SELECTION")
+      print()
+      print("What do you wish to find out?")
+      print(" - Area")
+      print(" - Perimeter")
+      print(" - Both")
+      parallelogramSelection = input()
+      # COMMIT 4 - Added a more advanced parallelogram dimension selection to make it easier for the user.
+      # The user can now select if they are wanting to find out the area, perimeter, or both before entering the calculations.
+      if parallelogramSelection == "Area" or parallelogramSelection == "area":
+        parallelogramBase = input("Please enter the width of the base: ")
+        parallelogramHeight = input("Please enter the length of the height: ")
+      elif parallelogramSelection == "perimeter" or parallelogramSelection == "Perimeter":
+        parallelogramSide1 = input("Please enter the length of the side: ")
+        parallelogramBase = input("Please enter the width of the base: ")
+      elif parallelogramSelection == "Both" or parallelogramSelection == "both":
+        parallelogramSide1 = input("Please enter the length of the side: ")
+        parallelogramBase = input("Please enter the width of the base: ")
+        parallelogramHeight = input("Please enter the length of the height: ")
+      else:
+        print("This is not a valid answer.")
+        parallelogram()
+    parallelogram()
     
     
   else:
