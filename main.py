@@ -49,16 +49,54 @@ def main():
       if triangleSelection == "Area" or triangleSelection == "area":
         triangleBase = input("Please enter the width of the base: ")
         triangleHeight = input("Please enter the length of the height: ")
+        # COMMIT 6 - Added mathematical functions to the triangle selection, for the area, perimeter, and both function.
+        # Function returns if the user inputs a letter instead of a number.
+        THdigit = triangleHeight.isdigit()
+        TBdigit = triangleBase.isdigit()
+        if THdigit == False or TBdigit == False:
+          print()
+          print("Your answers need to be in numbers. Please try again.")
+          print()
+          triangle()
+        else:
+          triangleArea = (float(triangleBase) * float(triangleHeight)) / 2
+          print("The area of the triangle is: " + str(triangleArea))
       elif triangleSelection == "perimeter" or triangleSelection == "Perimeter":
         triangleSide1 = input("Please enter the length of side 1: ")
         triangleSide2 = input("Please enter the length of side 2: ")
         triangleSide3 = input("Please enter the length of side 3: ")
+        TS1digit = triangleSide1.isdigit()
+        TS2digit = triangleSide2.isdigit()
+        TS3digit = triangleSide3.isdigit()
+        if TS1digit == False or TS2digit == False or TS3digit == False:
+          print()
+          print("Your answers need to be in numbers. Please try again.")
+          print()
+          triangle()
+        else:
+          trianglePerimeter = float(triangleSide1) + float(triangleSide2) + float(triangleSide3)
+          print("The perimeter of the triangle is: " + str(trianglePerimeter))
       elif triangleSelection == "both" or triangleSelection == "Both":
         triangleSide1 = input("Please enter the length of side 1: ")
         triangleSide2 = input("Please enter the length of side 2: ")
         triangleSide3 = input("Please enter the length of side 3: ")
         triangleBase = input("Please enter the width of the base: ")
         triangleHeight = input("Please enter the length of the height: ")
+        TS1digit = triangleSide1.isdigit()
+        TS2digit = triangleSide2.isdigit()
+        TS3digit = triangleSide3.isdigit()
+        THdigit = triangleHeight.isdigit()
+        TBdigit = triangleBase.isdigit()
+        if TS1digit == False or TS2digit == False or TS3digit == False or THdigit == False or TBdigit == False:
+          print()
+          print("Your answers need to be in numbers. Please try again.")
+          print()
+          triangle()
+        else:
+          triangleArea = (float(triangleBase) * float(triangleHeight)) / 2
+          trianglePerimeter = float(triangleSide1) + float(triangleSide2) + float(triangleSide3)
+          print("The area of the triangle is: " + str(triangleArea))
+          print("The perimeter of the triangle is: " + str(trianglePerimeter))
       else:
         print("This is not a valid answer.")
         triangle()
