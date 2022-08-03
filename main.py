@@ -13,10 +13,26 @@ def main():
   # COMMIT 3 - Added the dimension selections to every individual shape, which correlates to the
   # properties of the particular shape. Program breaks after dimensions are input.
   if whichShape == "Rectangle" or whichShape == "rectangle":
-    print("RECTANGLE DIMENSION SELECTION")
-    print()
-    rectangleHeight = input("Please enter the height: ")
-    rectangleWidth = input("Please enter the width: ")
+    def rectangle():
+      print("RECTANGLE DIMENSION SELECTION")
+      print()
+      # COMMIT 5 - Added the mathematics functions for the rectangle selection. Now, both the area and perimeter
+      # is calculated for the rectangle based on the user's input. Question also returns if the user mistakenly inputs a letter.
+      rectangleHeight = input("Please enter the height: ")
+      rectangleWidth = input("Please enter the width: ")
+      RHdigit = rectangleHeight.isdigit()
+      RWdigit = rectangleWidth.isdigit()
+      if RHdigit == False or RWdigit == False:
+        print()
+        print("Your answers need to be in numbers. Please try again.")
+        print()
+        rectangle()
+      else:
+        rectangleArea = float(rectangleHeight) * float(rectangleWidth)
+        rectanglePerimeter = (float(rectangleHeight) + (float(rectangleWidth))) * 2
+        print("The area of this rectangle is: " + str(rectangleArea))
+        print("The perimeter of this rectangle is: " + str(rectanglePerimeter))
+    rectangle()
     
   elif whichShape == "Triangle" or whichShape == "triangle":
     def triangle():
@@ -29,6 +45,7 @@ def main():
       triangleSelection = input()
       # COMMIT 4 - Added a more advanced triangle dimension selection to make it easier for the user.
       # The user can now select if they are wanting to find out the area, perimeter, or both before entering the calculations.
+      # Also returns the question if the user inputted an unknown response.
       if triangleSelection == "Area" or triangleSelection == "area":
         triangleBase = input("Please enter the width of the base: ")
         triangleHeight = input("Please enter the length of the height: ")
@@ -64,6 +81,7 @@ def main():
       parallelogramSelection = input()
       # COMMIT 4 - Added a more advanced parallelogram dimension selection to make it easier for the user.
       # The user can now select if they are wanting to find out the area, perimeter, or both before entering the calculations.
+      # Also returns the question if the user inputted an unknown response.
       if parallelogramSelection == "Area" or parallelogramSelection == "area":
         parallelogramBase = input("Please enter the width of the base: ")
         parallelogramHeight = input("Please enter the length of the height: ")
