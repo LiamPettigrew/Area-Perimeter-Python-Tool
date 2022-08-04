@@ -1,4 +1,5 @@
 # Area / Perimeter Python Tool - Created by Liam Pettigrew
+import math
 
 def main():
   # COMMIT 2 - Added the main() shape selection, where the user can choose to select either a
@@ -104,9 +105,25 @@ def main():
       
     
   elif whichShape == "Circle" or whichShape == "circle":
-    print("CIRCLE DIMENSION SELECTION")
-    print()
-    circleRadius = input("Please enter the radius: ")
+    def circle():
+      print("CIRCLE DIMENSION SELECTION")
+      print()
+      # COMMIT 7 - The circle mathematical functions have been inputted, which calculates both the area and
+      # circumference of the circle, using the "math.pi" imported tool. Question returns if user mistakenly
+      # inputs a letter instead of a number.
+      circleRadius = input("Please enter the radius: ")
+      CRdigit = circleRadius.isdigit()
+      if CRdigit == False:
+        print()
+        print("Your answers need to be in numbers. Please try again.")
+        print()
+        circle()
+      else:
+        circleArea = math.pi * (float(circleRadius) * float(circleRadius))
+        circlePerimeter = 2 * math.pi * float(circleRadius)
+        print("The area of the circle is: " + str(circleArea))
+        print("The circumference of the circle is: " + str(circlePerimeter))
+    circle()
     
   elif whichShape == "Parallelogram" or whichShape == "parallelogram":
     def parallelogram():
