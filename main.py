@@ -140,13 +140,49 @@ def main():
       if parallelogramSelection == "Area" or parallelogramSelection == "area":
         parallelogramBase = input("Please enter the width of the base: ")
         parallelogramHeight = input("Please enter the length of the height: ")
+        # COMMIT 8 - Added the mathematical functions for the parallelogram (for the area, perimeter, and both). Question
+        # returns if the user inputs an invalid response. This concludes Phase Three, now that all mathematical functions
+        # have been put in. However, after calculating each question, the program breaks.
+        PBdigit = parallelogramBase.isdigit()
+        PHdigit = parallelogramHeight.isdigit()
+        if PBdigit == False or PHdigit == False:
+          print()
+          print("Your answers need to be in numbers. Please try again.")
+          print()
+          parallelogram()
+        else:
+          parallelogramArea = float(parallelogramBase) * float(parallelogramHeight)
+          print("The area of the parallelogram is: " + str(parallelogramArea))
       elif parallelogramSelection == "perimeter" or parallelogramSelection == "Perimeter":
-        parallelogramSide1 = input("Please enter the length of the side: ")
+        parallelogramSide = input("Please enter the length of the side: ")
         parallelogramBase = input("Please enter the width of the base: ")
+        PSdigit = parallelogramSide.isdigit()
+        PBdigit = parallelogramBase.isdigit()
+        if PSdigit == False or PBdigit == False:
+          print()
+          print("Your answers need to be in numbers. Please try again.")
+          print()
+          parallelogram()
+        else:
+          parallelogramPerimeter = 2 * (float(parallelogramSide) + float(parallelogramBase))
+          print("The perimeter of the parallelogram is: " + str(parallelogramPerimeter))
       elif parallelogramSelection == "Both" or parallelogramSelection == "both":
-        parallelogramSide1 = input("Please enter the length of the side: ")
+        parallelogramSide = input("Please enter the length of the side: ")
         parallelogramBase = input("Please enter the width of the base: ")
         parallelogramHeight = input("Please enter the length of the height: ")
+        PSdigit = parallelogramSide.isdigit()
+        PBdigit = parallelogramBase.isdigit()
+        PHdigit = parallelogramHeight.isdigit()
+        if PBdigit == False or PHdigit == False or PSdigit == False:
+          print()
+          print("Your answers need to be in numbers. Please try again.")
+          print()
+          parallelogram()
+        else:
+          parallelogramArea = float(parallelogramBase) * float(parallelogramHeight)
+          parallelogramPerimeter = 2 * (float(parallelogramSide) + float(parallelogramBase))
+          print("The area of the parallelogram is: " + str(parallelogramArea))
+          print("The perimeter of the parallelogram is: " + str(parallelogramPerimeter))
       else:
         print("This is not a valid answer.")
         parallelogram()
