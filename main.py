@@ -33,6 +33,29 @@ def main():
         rectanglePerimeter = (float(rectangleHeight) + (float(rectangleWidth))) * 2
         print("The area of this rectangle is: " + str(rectangleArea))
         print("The perimeter of this rectangle is: " + str(rectanglePerimeter))
+
+        # COMMIT 9 - Added individual path selections for each shape for after the calculations are shown. Once the user is finished, they can now choose
+        # to solve another shape for the selected shape they're currently on (looping back to the function of the shape), or
+        # choose another shape (returning back to the start of main()). A choice for the history of all calculations made has
+        # also been included, however it hasn't been coded yet. The question returns if the user inputs an invalid answer.
+        def pathAfterShapeFunc():
+          print()
+          print("What do you wish to do now?")
+          print()
+          print(" - A: Solve another rectangle")
+          print(" - B: Choose another shape")
+          print(" - C: View the history of all your calculations")
+          pathAfterShape = input()
+          if pathAfterShape == "A" or pathAfterShape == "a":
+            rectangle()
+          elif pathAfterShape == "b" or pathAfterShape == "B":
+            main()
+          elif pathAfterShape == "c" or pathAfterShape == "C":
+            print("c")
+          else:
+            print("This is an invalid response. Please type the letter for your choice.")
+            pathAfterShapeFunc()
+        pathAfterShapeFunc()
     rectangle()
     
   elif whichShape == "Triangle" or whichShape == "triangle":
@@ -98,9 +121,30 @@ def main():
           trianglePerimeter = float(triangleSide1) + float(triangleSide2) + float(triangleSide3)
           print("The area of the triangle is: " + str(triangleArea))
           print("The perimeter of the triangle is: " + str(trianglePerimeter))
+
       else:
         print("This is not a valid answer.")
         triangle()
+
+      def pathAfterShapeFunc():
+        print()
+        print("What do you wish to do now?")
+        print()
+        print(" - A: Solve another triangle")
+        print(" - B: Choose another shape")
+        print(" - C: View the history of all your calculations")
+        pathAfterShape = input()
+        if pathAfterShape == "A" or pathAfterShape == "a":
+          triangle()
+        elif pathAfterShape == "b" or pathAfterShape == "B":
+          main()
+        elif pathAfterShape == "c" or pathAfterShape == "C":
+          print("c")
+        else:
+          print("This is an invalid response. Please type the letter for your choice.")
+          pathAfterShapeFunc()
+      pathAfterShapeFunc()
+      
     triangle()
       
     
@@ -123,6 +167,25 @@ def main():
         circlePerimeter = 2 * math.pi * float(circleRadius)
         print("The area of the circle is: " + str(circleArea))
         print("The circumference of the circle is: " + str(circlePerimeter))
+
+      def pathAfterShapeFunc():
+        print()
+        print("What do you wish to do now?")
+        print()
+        print(" - A: Solve another circle")
+        print(" - B: Choose another shape")
+        print(" - C: View the history of all your calculations")
+        pathAfterShape = input()
+        if pathAfterShape == "A" or pathAfterShape == "a":
+          circle()
+        elif pathAfterShape == "b" or pathAfterShape == "B":
+          main()
+        elif pathAfterShape == "c" or pathAfterShape == "C":
+          print("c")
+        else:
+          print("This is an invalid response. Please type the letter for your choice.")
+          pathAfterShapeFunc()
+      pathAfterShapeFunc()
     circle()
     
   elif whichShape == "Parallelogram" or whichShape == "parallelogram":
@@ -186,6 +249,25 @@ def main():
       else:
         print("This is not a valid answer.")
         parallelogram()
+
+      def pathAfterShapeFunc():
+        print()
+        print("What do you wish to do now?")
+        print()
+        print(" - A: Solve another parallelogram")
+        print(" - B: Choose another shape")
+        print(" - C: View the history of all your calculations")
+        pathAfterShape = input()
+        if pathAfterShape == "A" or pathAfterShape == "a":
+          parallelogram()
+        elif pathAfterShape == "b" or pathAfterShape == "B":
+          main()
+        elif pathAfterShape == "c" or pathAfterShape == "C":
+          print("c")
+        else:
+          print("This is an invalid response. Please type the letter for your choice.")
+          pathAfterShapeFunc()
+      pathAfterShapeFunc()
     parallelogram()
     
     
