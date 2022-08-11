@@ -29,8 +29,12 @@ def main():
         print()
         rectangle()
       else:
+        calculations.append("Rectangle hieght: " + str(rectangleHeight))
+        calculations.append("Rectangle width: " + str(rectangleWidth))
         rectangleArea = float(rectangleHeight) * float(rectangleWidth)
+        calculations.append("Rectangle Area: " + str(rectangleArea))
         rectanglePerimeter = (float(rectangleHeight) + (float(rectangleWidth))) * 2
+        calculations.append("Rectangle Perimeter " + str(rectanglePerimeter))
         print("The area of this rectangle is: " + str(rectangleArea))
         print("The perimeter of this rectangle is: " + str(rectanglePerimeter))
 
@@ -51,7 +55,7 @@ def main():
           elif pathAfterShape == "b" or pathAfterShape == "B":
             main()
           elif pathAfterShape == "c" or pathAfterShape == "C":
-            print("c")
+            inputHistory()
           else:
             print("This is an invalid response. Please type the letter for your choice.")
             pathAfterShapeFunc()
@@ -83,7 +87,10 @@ def main():
           print()
           triangle()
         else:
+          calculations.append("Triangle Base: " + str(triangleBase))
+          calculations.append("Triangle Height: " + str(triangleHeight))
           triangleArea = (float(triangleBase) * float(triangleHeight)) / 2
+          calculations.append("Triangle Area: " + str(triangleArea))
           print("The area of the triangle is: " + str(triangleArea))
       elif triangleSelection == "perimeter" or triangleSelection == "Perimeter":
         triangleSide1 = input("Please enter the length of side 1: ")
@@ -98,7 +105,11 @@ def main():
           print()
           triangle()
         else:
+          calculations.append("Triangle Side 1: " + str(triangleSide1))
+          calculations.append("Triangle Side 2: " + str(triangleSide2))
+          calculations.append("Triangle Side 3: " + str(triangleSide3))
           trianglePerimeter = float(triangleSide1) + float(triangleSide2) + float(triangleSide3)
+          calculations.append("Triangle Perimeter: " + str(trianglePerimeter))
           print("The perimeter of the triangle is: " + str(trianglePerimeter))
       elif triangleSelection == "both" or triangleSelection == "Both":
         triangleSide1 = input("Please enter the length of side 1: ")
@@ -117,10 +128,22 @@ def main():
           print()
           triangle()
         else:
+          # COMMIT 10 - The user can now choose to be directed to inputHistory after the calculations are made. A new "calculations"
+          # variable has been made, which stores (appends) each of the user's dimensions inputs for every shape, and these can be
+          # seen in a list in inputHistory. "Calculations" also appends all answers summoned after the dimension inputs are made.
+          # While the calculations list successfully prints and is bug-free, the UI isn't very user-friendly, which will need to be improved in
+          # a later commit.
+          calculations.append("Triangle Side 1: " + str(triangleSide1))
+          calculations.append("Triangle Side 2: " + str(triangleSide2))
+          calculations.append("Triangle Side 3: " + str(triangleSide3))
+          calculations.append("Triangle Base: " + str(triangleBase))
+          calculations.append("Triangle Height: " + str(triangleHeight))
           triangleArea = (float(triangleBase) * float(triangleHeight)) / 2
           trianglePerimeter = float(triangleSide1) + float(triangleSide2) + float(triangleSide3)
           print("The area of the triangle is: " + str(triangleArea))
+          calculations.append("Triangle Area: " + str(triangleArea))
           print("The perimeter of the triangle is: " + str(trianglePerimeter))
+          calculations.append("Triangle Perimeter: " + str(trianglePerimeter))
 
       else:
         print("This is not a valid answer.")
@@ -139,7 +162,7 @@ def main():
         elif pathAfterShape == "b" or pathAfterShape == "B":
           main()
         elif pathAfterShape == "c" or pathAfterShape == "C":
-          print("c")
+          inputHistory()
         else:
           print("This is an invalid response. Please type the letter for your choice.")
           pathAfterShapeFunc()
@@ -163,8 +186,11 @@ def main():
         print()
         circle()
       else:
+        calculations.append("Circle Radius: " + str(circleRadius))
         circleArea = math.pi * (float(circleRadius) * float(circleRadius))
+        calculations.append("Circle Area: " + str(circleArea))
         circlePerimeter = 2 * math.pi * float(circleRadius)
+        calculations.append("Circle Perimeter: " + str(circlePerimeter))
         print("The area of the circle is: " + str(circleArea))
         print("The circumference of the circle is: " + str(circlePerimeter))
 
@@ -181,7 +207,7 @@ def main():
         elif pathAfterShape == "b" or pathAfterShape == "B":
           main()
         elif pathAfterShape == "c" or pathAfterShape == "C":
-          print("c")
+          inputHistory()
         else:
           print("This is an invalid response. Please type the letter for your choice.")
           pathAfterShapeFunc()
@@ -214,7 +240,10 @@ def main():
           print()
           parallelogram()
         else:
+          calculations.append("Parallelogram Base: " + str(parallelogramBase))
+          calculations.append("Parallelogram Height: " + str(parallelogramHeight))
           parallelogramArea = float(parallelogramBase) * float(parallelogramHeight)
+          calculations.append("Parallelogram Area: " + str(parallelogramArea))
           print("The area of the parallelogram is: " + str(parallelogramArea))
       elif parallelogramSelection == "perimeter" or parallelogramSelection == "Perimeter":
         parallelogramSide = input("Please enter the length of the side: ")
@@ -227,7 +256,10 @@ def main():
           print()
           parallelogram()
         else:
+          calculations.append("Parallelogram Base: " + str(parallelogramBase))
+          calculations.append("Parallelogram Side: " + str(parallelogramSide))
           parallelogramPerimeter = 2 * (float(parallelogramSide) + float(parallelogramBase))
+          calculations.append("Parallelogram Perimeter: " + str(parallelogramPerimeter))
           print("The perimeter of the parallelogram is: " + str(parallelogramPerimeter))
       elif parallelogramSelection == "Both" or parallelogramSelection == "both":
         parallelogramSide = input("Please enter the length of the side: ")
@@ -242,8 +274,13 @@ def main():
           print()
           parallelogram()
         else:
+          calculations.append("Parallelogram Base: " + str(parallelogramBase))
+          calculations.append("Parallelogram Side: " + str(parallelogramSide))
+          calculations.append("Parallelogram Height: " + str(parallelogramHeight))
           parallelogramArea = float(parallelogramBase) * float(parallelogramHeight)
+          calculations.append("Parallelogram Area: " + str(parallelogramArea))
           parallelogramPerimeter = 2 * (float(parallelogramSide) + float(parallelogramBase))
+          calculations.append("Parallelogram Perimeter: " + str(parallelogramPerimeter))
           print("The area of the parallelogram is: " + str(parallelogramArea))
           print("The perimeter of the parallelogram is: " + str(parallelogramPerimeter))
       else:
@@ -263,7 +300,7 @@ def main():
         elif pathAfterShape == "b" or pathAfterShape == "B":
           main()
         elif pathAfterShape == "c" or pathAfterShape == "C":
-          print("c")
+          inputHistory()
         else:
           print("This is an invalid response. Please type the letter for your choice.")
           pathAfterShapeFunc()
@@ -274,6 +311,19 @@ def main():
   else:
     print("This is not a valid shape. Please try again.")
     main()
+
+# COMMIT 10 - The user can now choose to be directed to inputHistory after the calculations are made. A new "calculations"
+# variable has been made, which stores (appends) each of the user's dimensions inputs for every shape, and these can be
+# seen in a list in inputHistory. "Calculations" also appends all answers summoned after the dimension inputs are made.
+# While the calculations list successfully prints and is bug-free, the UI isn't very user-friendly, which will need to be improved in
+# a later commit.
+
+calculations = []
+def inputHistory():
+  print()
+  print("All previous calculations:")
+  print(calculations)
+
 
 # COMMIT 1 - Added copyright information and welcome message.
 # Asks the user if they wish to either continue to the shape selection (main) or view the instructions.
