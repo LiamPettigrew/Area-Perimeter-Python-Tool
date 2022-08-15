@@ -29,12 +29,12 @@ def main():
         print()
         rectangle()
       else:
-        calculations.append("Rectangle hieght: " + str(rectangleHeight))
-        calculations.append("Rectangle width: " + str(rectangleWidth))
+        rectangleCalculation.append("(USER INPUT) Rectangle height: " + str(rectangleHeight))
+        rectangleCalculation.append("(USER INPUT) Rectangle width: " + str(rectangleWidth))
         rectangleArea = float(rectangleHeight) * float(rectangleWidth)
-        calculations.append("Rectangle Area: " + str(rectangleArea))
+        rectangleCalculation.append("Rectangle Area: " + str(rectangleArea))
         rectanglePerimeter = (float(rectangleHeight) + (float(rectangleWidth))) * 2
-        calculations.append("Rectangle Perimeter " + str(rectanglePerimeter))
+        rectangleCalculation.append("Rectangle Perimeter " + str(rectanglePerimeter))
         print("The area of this rectangle is: " + str(rectangleArea))
         print("The perimeter of this rectangle is: " + str(rectanglePerimeter))
 
@@ -87,10 +87,10 @@ def main():
           print()
           triangle()
         else:
-          calculations.append("Triangle Base: " + str(triangleBase))
-          calculations.append("Triangle Height: " + str(triangleHeight))
+          triangleCalculation.append("(USER INPUT) Triangle Base: " + str(triangleBase))
+          triangleCalculation.append("(USER INPUT) Triangle Height: " + str(triangleHeight))
           triangleArea = (float(triangleBase) * float(triangleHeight)) / 2
-          calculations.append("Triangle Area: " + str(triangleArea))
+          triangleCalculation.append("Triangle Area: " + str(triangleArea))
           print("The area of the triangle is: " + str(triangleArea))
       elif triangleSelection == "perimeter" or triangleSelection == "Perimeter":
         triangleSide1 = input("Please enter the length of side 1: ")
@@ -105,11 +105,11 @@ def main():
           print()
           triangle()
         else:
-          calculations.append("Triangle Side 1: " + str(triangleSide1))
-          calculations.append("Triangle Side 2: " + str(triangleSide2))
-          calculations.append("Triangle Side 3: " + str(triangleSide3))
+          triangleCalculation.append("(USER INPUT) Triangle Side 1: " + str(triangleSide1))
+          triangleCalculation.append("(USER INPUT) Triangle Side 2: " + str(triangleSide2))
+          triangleCalculation.append("(USER INPUT) Triangle Side 3: " + str(triangleSide3))
           trianglePerimeter = float(triangleSide1) + float(triangleSide2) + float(triangleSide3)
-          calculations.append("Triangle Perimeter: " + str(trianglePerimeter))
+          triangleCalculation.append("Triangle Perimeter: " + str(trianglePerimeter))
           print("The perimeter of the triangle is: " + str(trianglePerimeter))
       elif triangleSelection == "both" or triangleSelection == "Both":
         triangleSide1 = input("Please enter the length of side 1: ")
@@ -133,17 +133,17 @@ def main():
           # seen in a list in inputHistory. "Calculations" also appends all answers summoned after the dimension inputs are made.
           # While the calculations list successfully prints and is bug-free, the UI isn't very user-friendly, which will need to be improved in
           # a later commit.
-          calculations.append("Triangle Side 1: " + str(triangleSide1))
-          calculations.append("Triangle Side 2: " + str(triangleSide2))
-          calculations.append("Triangle Side 3: " + str(triangleSide3))
-          calculations.append("Triangle Base: " + str(triangleBase))
-          calculations.append("Triangle Height: " + str(triangleHeight))
+          triangleCalculation.append("(USER INPUT) Triangle Side 1: " + str(triangleSide1))
+          triangleCalculation.append("(USER INPUT) Triangle Side 2: " + str(triangleSide2))
+          triangleCalculation.append("(USER INPUT) Triangle Side 3: " + str(triangleSide3))
+          triangleCalculation.append("(USER INPUT) Triangle Base: " + str(triangleBase))
+          triangleCalculation.append("(USER INPUT) Triangle Height: " + str(triangleHeight))
           triangleArea = (float(triangleBase) * float(triangleHeight)) / 2
           trianglePerimeter = float(triangleSide1) + float(triangleSide2) + float(triangleSide3)
           print("The area of the triangle is: " + str(triangleArea))
-          calculations.append("Triangle Area: " + str(triangleArea))
+          triangleCalculation.append("Triangle Area: " + str(triangleArea))
           print("The perimeter of the triangle is: " + str(trianglePerimeter))
-          calculations.append("Triangle Perimeter: " + str(trianglePerimeter))
+          triangleCalculation.append("Triangle Perimeter: " + str(trianglePerimeter))
 
       else:
         print("This is not a valid answer.")
@@ -186,11 +186,11 @@ def main():
         print()
         circle()
       else:
-        calculations.append("Circle Radius: " + str(circleRadius))
+        circleCalculation.append("(USER INPUT) Circle Radius: " + str(circleRadius))
         circleArea = math.pi * (float(circleRadius) * float(circleRadius))
-        calculations.append("Circle Area: " + str(circleArea))
+        circleCalculation.append("Circle Area: " + str(circleArea))
         circlePerimeter = 2 * math.pi * float(circleRadius)
-        calculations.append("Circle Perimeter: " + str(circlePerimeter))
+        circleCalculation.append("Circle Perimeter: " + str(circlePerimeter))
         print("The area of the circle is: " + str(circleArea))
         print("The circumference of the circle is: " + str(circlePerimeter))
 
@@ -240,10 +240,10 @@ def main():
           print()
           parallelogram()
         else:
-          calculations.append("Parallelogram Base: " + str(parallelogramBase))
-          calculations.append("Parallelogram Height: " + str(parallelogramHeight))
+          parallelogramCalculation.append("(USER INPUT) Parallelogram Base: " + str(parallelogramBase))
+          parallelogramCalculation.append("(USER INPUT) Parallelogram Height: " + str(parallelogramHeight))
           parallelogramArea = float(parallelogramBase) * float(parallelogramHeight)
-          calculations.append("Parallelogram Area: " + str(parallelogramArea))
+          parallelogramCalculation.append("Parallelogram Area: " + str(parallelogramArea))
           print("The area of the parallelogram is: " + str(parallelogramArea))
       elif parallelogramSelection == "perimeter" or parallelogramSelection == "Perimeter":
         parallelogramSide = input("Please enter the length of the side: ")
@@ -256,10 +256,10 @@ def main():
           print()
           parallelogram()
         else:
-          calculations.append("Parallelogram Base: " + str(parallelogramBase))
-          calculations.append("Parallelogram Side: " + str(parallelogramSide))
+          parallelogramCalculation.append("(USER INPUT) Parallelogram Base: " + str(parallelogramBase))
+          parallelogramCalculation.append("(USER INPUT) Parallelogram Side: " + str(parallelogramSide))
           parallelogramPerimeter = 2 * (float(parallelogramSide) + float(parallelogramBase))
-          calculations.append("Parallelogram Perimeter: " + str(parallelogramPerimeter))
+          parallelogramCalculation.append("Parallelogram Perimeter: " + str(parallelogramPerimeter))
           print("The perimeter of the parallelogram is: " + str(parallelogramPerimeter))
       elif parallelogramSelection == "Both" or parallelogramSelection == "both":
         parallelogramSide = input("Please enter the length of the side: ")
@@ -274,13 +274,13 @@ def main():
           print()
           parallelogram()
         else:
-          calculations.append("Parallelogram Base: " + str(parallelogramBase))
-          calculations.append("Parallelogram Side: " + str(parallelogramSide))
-          calculations.append("Parallelogram Height: " + str(parallelogramHeight))
+          parallelogramCalculation.append("(USER INPUT) Parallelogram Side: " + str(parallelogramSide))
+          parallelogramCalculation.append("(USER INPUT) Parallelogram Base: " + str(parallelogramBase))
+          parallelogramCalculation.append("(USER INPUT) Parallelogram Height: " + str(parallelogramHeight))
           parallelogramArea = float(parallelogramBase) * float(parallelogramHeight)
-          calculations.append("Parallelogram Area: " + str(parallelogramArea))
+          parallelogramCalculation.append("Parallelogram Area: " + str(parallelogramArea))
           parallelogramPerimeter = 2 * (float(parallelogramSide) + float(parallelogramBase))
-          calculations.append("Parallelogram Perimeter: " + str(parallelogramPerimeter))
+          parallelogramCalculation.append("Parallelogram Perimeter: " + str(parallelogramPerimeter))
           print("The area of the parallelogram is: " + str(parallelogramArea))
           print("The perimeter of the parallelogram is: " + str(parallelogramPerimeter))
       else:
@@ -318,11 +318,32 @@ def main():
 # While the calculations list successfully prints and is bug-free, the UI isn't very user-friendly, which will need to be improved in
 # a later commit.
 
-calculations = []
+# COMMIT 11 - Changed the UI of the calculations history log into a tidy, vertical list, with all of the inputs and
+# calculations separated between gaps. I achieved this by having calculation lists for every shape individually, instead
+# of having one "calculations" variable. This makes every shape's inputs and calculations categorized. I have tested and made sure
+# this new code is bug-free.
+
+rectangleCalculation = []
+triangleCalculation = []
+circleCalculation = []
+parallelogramCalculation = []
+
 def inputHistory():
   print()
   print("All previous calculations:")
-  print(calculations)
+  print()
+  for gap1 in rectangleCalculation:
+    print(gap1)
+  print()
+  for gap2 in triangleCalculation:
+    print(gap2)
+  print()
+  for gap3 in circleCalculation:
+    print(gap3)
+  print()
+  for gap4 in parallelogramCalculation:
+    print(gap4)
+  print()
 
 
 # COMMIT 1 - Added copyright information and welcome message.
