@@ -344,6 +344,20 @@ def inputHistory():
   for gap4 in parallelogramCalculation:
     print(gap4)
   print()
+  # COMMIT 12 - Added the final component to Phase Five. After the calculation history is shown, the user can now
+  # return back to the shape selection by pressing enter. The question returns if the user inputs an invalid answer.
+  # This now completed the necessities of the program, as the program now does not have an end, and fully loops.
+  # Extensive bug-testing for every possible outcome has taken place for this code, and no bugs, glitches or errors
+  # have been found.
+  def afterHistoryLoop():
+    print("Please press enter to return to the shape selection.")
+    enterAfterHistory = input()
+    if enterAfterHistory == (""):
+      main()
+    else:
+      print("This is not a valid answer.")
+      afterHistoryLoop()
+  afterHistoryLoop()
 
 
 # COMMIT 1 - Added copyright information and welcome message.
