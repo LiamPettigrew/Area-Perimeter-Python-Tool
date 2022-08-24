@@ -1,46 +1,67 @@
 # Area / Perimeter Python Tool - Created by Liam Pettigrew
 import math
 import os
+from colorama import Fore, Back, Style
+import time
+
+line = "========================================"
 
 def main():
   # COMMIT 2 - Added the main() shape selection, where the user can choose to select either a
   # rectangle, triangle, circle, or a parallelogram. I have also implemented answer-checkers throughout
   # the code, so that the program responds to invalid answers.
   print()
-  print("SHAPE SELECTION")
+  print(Fore.CYAN + Style.BRIGHT + "SHAPE SELECTION" + Style.RESET_ALL)
   print("Please enter the shape you are wishing to solve.")
   print()
-  print(" - Rectangle \n - Triangle \n - Circle \n - Parallelogram")
-  whichShape = input()
+  print(line)
+  print()
+  time.sleep(0.05)
+  print(" 1) Rectangle")
+  time.sleep(0.05)
+  print(" 2) Triangle")
+  time.sleep(0.05)
+  print(" 3) Circle")
+  time.sleep(0.05)
+  print(" 4) Parallelogram")
+  time.sleep(0.05)
+  print()
+  print(line)
+  print()
+  whichShape = input(" • Enter (Number): ")
   # COMMIT 3 - Added the dimension selections to every individual shape, which correlates to the
   # properties of the particular shape. Program breaks after dimensions are input.
-  if whichShape == "Rectangle" or whichShape == "rectangle":
+  if whichShape == "Rectangle" or whichShape == "rectangle" or whichShape == "1":
     os.system("clear")
     def rectangle():
-      print("RECTANGLE DIMENSION SELECTION")
+      print(Fore.CYAN + Style.BRIGHT + "RECTANGLE DIMENSION SELECTION" + Style.RESET_ALL)
       print()
       # COMMIT 5 - Added the mathematics functions for the rectangle selection. Now, both the area and perimeter
       # is calculated for the rectangle based on the user's input. Question also returns if the user mistakenly inputs a letter.
-      rectangleHeight = input("Please enter the height: ")
-      rectangleWidth = input("Please enter the width: ")
+      rectangleHeight = input(" • Please enter the height: ")
+      rectangleWidth = input(" • Please enter the width: ")
       RHdigit = rectangleHeight.isdigit()
       RWdigit = rectangleWidth.isdigit()
       if RHdigit == False or RWdigit == False:
         os.system("clear")
         print()
-        print("Your answers need to be in numbers. Please try again.")
+        print(Fore.RED + "Your answers need to be in numbers. Please try again." + Style.RESET_ALL)
         print()
         rectangle()
       else:
-        rectangleCalculation.append("(USER INPUT) Rectangle height: " + str(rectangleHeight))
-        rectangleCalculation.append("(USER INPUT) Rectangle width: " + str(rectangleWidth))
+        rectangleCalculation.append("►► Rectangle height: " + str(rectangleHeight))
+        rectangleCalculation.append("►► Rectangle width: " + str(rectangleWidth))
         rectangleArea = float(rectangleHeight) * float(rectangleWidth)
         print()
-        rectangleCalculation.append("Rectangle Area: " + str(rectangleArea))
+        rectangleCalculation.append("= Rectangle Area: " + str(rectangleArea))
         rectanglePerimeter = (float(rectangleHeight) + (float(rectangleWidth))) * 2
-        rectangleCalculation.append("Rectangle Perimeter " + str(rectanglePerimeter))
-        print("The area of this rectangle is: " + str(rectangleArea))
-        print("The perimeter of this rectangle is: " + str(rectanglePerimeter))
+        rectangleCalculation.append("= Rectangle Perimeter " + str(rectanglePerimeter))
+        print(line)
+        print()
+        print(Style.BRIGHT + "The area of this rectangle is: " + str(rectangleArea) + Style.RESET_ALL)
+        print(Style.BRIGHT + "The perimeter of this rectangle is: " + str(rectanglePerimeter) + Style.RESET_ALL)
+        print()
+        print(line)
 
         # COMMIT 9 - Added individual path selections for each shape for after the calculations are shown. Once the user is finished, they can now choose
         # to solve another shape for the selected shape they're currently on (looping back to the function of the shape), or
@@ -50,43 +71,52 @@ def main():
           print()
           print("What do you wish to do now?")
           print()
-          print(" - A: Solve another rectangle")
-          print(" - B: Choose another shape")
-          print(" - C: View the history of all your calculations")
-          pathAfterShape = input()
-          if pathAfterShape == "A" or pathAfterShape == "a":
+          print(" 1) Solve another rectangle")
+          print(" 2) Choose another shape")
+          print(" 3) View the history of all your calculations")
+          print()
+          pathAfterShape = input(" • Enter (Number): ")
+          if pathAfterShape == "1":
             os.system("clear")
             rectangle()
-          elif pathAfterShape == "b" or pathAfterShape == "B":
+          elif pathAfterShape == "2":
             os.system("clear")
             main()
-          elif pathAfterShape == "c" or pathAfterShape == "C":
+          elif pathAfterShape == "3":
             os.system("clear")
             inputHistory()
           else:
             os.system("clear")
-            print("This is an invalid response. Please type the letter for your choice.")
+            print(Fore.RED + "This is an invalid response. Please type the letter for your choice." + Style.RESET_ALL)
             pathAfterShapeFunc()
         pathAfterShapeFunc()
     rectangle()
     
-  elif whichShape == "Triangle" or whichShape == "triangle":
+  elif whichShape == "Triangle" or whichShape == "triangle" or whichShape == "2":
     os.system("clear")
     def triangle():
-      print("TRIANGLE DIMENSION SELECTION")
+      print(Fore.CYAN + Style.BRIGHT + "TRIANGLE DIMENSION SELECTION" + Style.RESET_ALL)
       print()
       print("What do you wish to find out?")
-      print(" - Area")
-      print(" - Perimeter")
-      print(" - Both")
-      triangleSelection = input()
+      print()
+      print(line)
+      print()
+      print(" 1) Area")
+      print(" 2) Perimeter")
+      print(" 3) Both")
+      print()
+      print(line)
+      print()
+      triangleSelection = input(" • Enter (Number): ")
       # COMMIT 4 - Added a more advanced triangle dimension selection to make it easier for the user.
       # The user can now select if they are wanting to find out the area, perimeter, or both before entering the calculations.
       # Also returns the question if the user inputted an unknown response.
-      if triangleSelection == "Area" or triangleSelection == "area":
+      if triangleSelection == "Area" or triangleSelection == "area" or triangleSelection == "1":
         os.system("clear")
-        triangleBase = input("Please enter the width of the base: ")
-        triangleHeight = input("Please enter the length of the height: ")
+        print(Fore.CYAN + Style.BRIGHT + "TRIANGLE AREA DIMENSION SELECTION" + Style.RESET_ALL)
+        print()
+        triangleBase = input(" • Please enter the width of the base: ")
+        triangleHeight = input(" • Please enter the length of the height: ")
         # COMMIT 6 - Added mathematical functions to the triangle selection, for the area, perimeter, and both function.
         # Function returns if the user inputs a letter instead of a number.
         THdigit = triangleHeight.isdigit()
@@ -94,45 +124,57 @@ def main():
         if THdigit == False or TBdigit == False:
           os.system("clear")
           print()
-          print("Your answers need to be in numbers. Please try again.")
+          print(Fore.RED + "Your answers need to be in numbers. Please try again." + Style.RESET_ALL)
           print()
           triangle()
         else:
-          triangleCalculation.append("(USER INPUT) Triangle Base: " + str(triangleBase))
-          triangleCalculation.append("(USER INPUT) Triangle Height: " + str(triangleHeight))
+          triangleCalculation.append("►► Triangle Base: " + str(triangleBase))
+          triangleCalculation.append("►► Triangle Height: " + str(triangleHeight))
           triangleArea = (float(triangleBase) * float(triangleHeight)) / 2
           print()
-          triangleCalculation.append("Triangle Area: " + str(triangleArea))
-          print("The area of the triangle is: " + str(triangleArea))
-      elif triangleSelection == "perimeter" or triangleSelection == "Perimeter":
+          triangleCalculation.append("= Triangle Area: " + str(triangleArea))
+          print(line)
+          print()
+          print(Style.BRIGHT + "The area of the triangle is: " + str(triangleArea) + Style.RESET_ALL)
+          print()
+          print(line)
+      elif triangleSelection == "perimeter" or triangleSelection == "Perimeter" or triangleSelection == "2":
         os.system("clear")
-        triangleSide1 = input("Please enter the length of side 1: ")
-        triangleSide2 = input("Please enter the length of side 2: ")
-        triangleSide3 = input("Please enter the length of side 3: ")
+        print(Fore.CYAN + Style.BRIGHT + "TRIANGLE PERIMETER DIMENSION SELECTION" + Style.RESET_ALL)
+        print()
+        triangleSide1 = input(" • Please enter the length of side 1: ")
+        triangleSide2 = input(" • Please enter the length of side 2: ")
+        triangleSide3 = input(" • Please enter the length of side 3: ")
         TS1digit = triangleSide1.isdigit()
         TS2digit = triangleSide2.isdigit()
         TS3digit = triangleSide3.isdigit()
         if TS1digit == False or TS2digit == False or TS3digit == False:
           os.system("clear")
           print()
-          print("Your answers need to be in numbers. Please try again.")
+          print(Fore.RED + "Your answers need to be in numbers. Please try again." + Style.RESET_ALL)
           print()
           triangle()
         else:
-          triangleCalculation.append("(USER INPUT) Triangle Side 1: " + str(triangleSide1))
-          triangleCalculation.append("(USER INPUT) Triangle Side 2: " + str(triangleSide2))
-          triangleCalculation.append("(USER INPUT) Triangle Side 3: " + str(triangleSide3))
+          triangleCalculation.append("►► Triangle Side 1: " + str(triangleSide1))
+          triangleCalculation.append("►► Triangle Side 2: " + str(triangleSide2))
+          triangleCalculation.append("►► Triangle Side 3: " + str(triangleSide3))
           trianglePerimeter = float(triangleSide1) + float(triangleSide2) + float(triangleSide3)
-          triangleCalculation.append("Triangle Perimeter: " + str(trianglePerimeter))
+          triangleCalculation.append("= Triangle Perimeter: " + str(trianglePerimeter))
           print()
-          print("The perimeter of the triangle is: " + str(trianglePerimeter))
-      elif triangleSelection == "both" or triangleSelection == "Both":
+          print(line)
+          print()
+          print(Style.BRIGHT + "The perimeter of the triangle is: " + str(trianglePerimeter) + Style.RESET_ALL)
+          print()
+          print(line)
+      elif triangleSelection == "both" or triangleSelection == "Both" or triangleSelection == "3":
         os.system("clear")
-        triangleSide1 = input("Please enter the length of side 1: ")
-        triangleSide2 = input("Please enter the length of side 2: ")
-        triangleSide3 = input("Please enter the length of side 3: ")
-        triangleBase = input("Please enter the width of the base: ")
-        triangleHeight = input("Please enter the length of the height: ")
+        print(Fore.CYAN + Style.BRIGHT + "TRIANGLE AREA & PERIMETER DIMENSION SELECTION" + Style.RESET_ALL)
+        print()
+        triangleSide1 = input(" • Please enter the length of side 1: ")
+        triangleSide2 = input(" • Please enter the length of side 2: ")
+        triangleSide3 = input(" • Please enter the length of side 3: ")
+        triangleBase = input(" • Please enter the width of the base: ")
+        triangleHeight = input(" • Please enter the length of the height: ")
         TS1digit = triangleSide1.isdigit()
         TS2digit = triangleSide2.isdigit()
         TS3digit = triangleSide3.isdigit()
@@ -141,7 +183,7 @@ def main():
         if TS1digit == False or TS2digit == False or TS3digit == False or THdigit == False or TBdigit == False:
           os.system("clear")
           print()
-          print("Your answers need to be in numbers. Please try again.")
+          print(Fore.RED + "Your answers need to be in numbers. Please try again." + Style.RESET_ALL)
           print()
           triangle()
         else:
@@ -150,117 +192,135 @@ def main():
           # seen in a list in inputHistory. "Calculations" also appends all answers summoned after the dimension inputs are made.
           # While the calculations list successfully prints and is bug-free, the UI isn't very user-friendly, which will need to be improved in
           # a later commit.
-          triangleCalculation.append("(USER INPUT) Triangle Side 1: " + str(triangleSide1))
-          triangleCalculation.append("(USER INPUT) Triangle Side 2: " + str(triangleSide2))
-          triangleCalculation.append("(USER INPUT) Triangle Side 3: " + str(triangleSide3))
-          triangleCalculation.append("(USER INPUT) Triangle Base: " + str(triangleBase))
-          triangleCalculation.append("(USER INPUT) Triangle Height: " + str(triangleHeight))
+          triangleCalculation.append("►► Triangle Side 1: " + str(triangleSide1))
+          triangleCalculation.append("►► Triangle Side 2: " + str(triangleSide2))
+          triangleCalculation.append("►► Triangle Side 3: " + str(triangleSide3))
+          triangleCalculation.append("►► Triangle Base: " + str(triangleBase))
+          triangleCalculation.append("►► Triangle Height: " + str(triangleHeight))
           triangleArea = (float(triangleBase) * float(triangleHeight)) / 2
           trianglePerimeter = float(triangleSide1) + float(triangleSide2) + float(triangleSide3)
           print()
-          print("The area of the triangle is: " + str(triangleArea))
-          triangleCalculation.append("Triangle Area: " + str(triangleArea))
-          print("The perimeter of the triangle is: " + str(trianglePerimeter))
-          triangleCalculation.append("Triangle Perimeter: " + str(trianglePerimeter))
+          print(line)
+          print()
+          print(Style.BRIGHT + "The area of the triangle is: " + str(triangleArea) + Style.RESET_ALL)
+          triangleCalculation.append("= Triangle Area: " + str(triangleArea))
+          print(Style.BRIGHT + "The perimeter of the triangle is: " + str(trianglePerimeter) + Style.RESET_ALL)
+          print()
+          print(line)
+          triangleCalculation.append("= Triangle Perimeter: " + str(trianglePerimeter))
 
       else:
         os.system("clear")
-        print("This is not a valid answer.")
+        print(Fore.RED + "This is not a valid answer." + Style.RESET_ALL)
         triangle()
 
       def pathAfterShapeFunc():
         print()
         print("What do you wish to do now?")
         print()
-        print(" - A: Solve another triangle")
-        print(" - B: Choose another shape")
-        print(" - C: View the history of all your calculations")
-        pathAfterShape = input()
-        if pathAfterShape == "A" or pathAfterShape == "a":
+        print(" 1) Solve another triangle")
+        print(" 2) Choose another shape")
+        print(" 3) View the history of all your calculations")
+        print()
+        pathAfterShape = input(" • Enter (Number): ")
+        if pathAfterShape == "1":
           os.system("clear")
           triangle()
-        elif pathAfterShape == "b" or pathAfterShape == "B":
+        elif pathAfterShape == "2":
           os.system("clear")
           main()
-        elif pathAfterShape == "c" or pathAfterShape == "C":
+        elif pathAfterShape == "3":
           os.system("clear")
           inputHistory()
         else:
           os.system("clear")
-          print("This is an invalid response. Please type the letter for your choice.")
+          print(Fore.RED + "This is an invalid response. Please type the letter for your choice." + Style.RESET_ALL)
           pathAfterShapeFunc()
       pathAfterShapeFunc()
       
     triangle()
       
     
-  elif whichShape == "Circle" or whichShape == "circle":
+  elif whichShape == "Circle" or whichShape == "circle" or whichShape == "3":
     os.system("clear")
     def circle():
-      print("CIRCLE DIMENSION SELECTION")
+      print(Style.BRIGHT + Fore.CYAN + "CIRCLE DIMENSION SELECTION" + Style.RESET_ALL)
       print()
       # COMMIT 7 - The circle mathematical functions have been inputted, which calculates both the area and
       # circumference of the circle, using the "math.pi" imported tool. Question returns if user mistakenly
       # inputs a letter instead of a number.
-      circleRadius = input("Please enter the radius: ")
+      circleRadius = input(" • Please enter the radius: ")
       CRdigit = circleRadius.isdigit()
       if CRdigit == False:
         os.system("clear")
         print()
-        print("Your answers need to be in numbers. Please try again.")
+        print(Fore.RED + "Your answers need to be in numbers. Please try again." + Style.RESET_ALL)
         print()
         circle()
       else:
-        circleCalculation.append("(USER INPUT) Circle Radius: " + str(circleRadius))
+        circleCalculation.append("►► Circle Radius: " + str(circleRadius))
         circleArea = math.pi * (float(circleRadius) * float(circleRadius))
-        circleCalculation.append("Circle Area: " + str(circleArea))
+        circleCalculation.append("= Circle Area: " + str(circleArea))
         circlePerimeter = 2 * math.pi * float(circleRadius)
-        circleCalculation.append("Circle Perimeter: " + str(circlePerimeter))
+        circleCalculation.append("= Circle Perimeter: " + str(circlePerimeter))
         print()
-        print("The area of the circle is: " + str(circleArea))
-        print("The circumference of the circle is: " + str(circlePerimeter))
+        print(line)
+        print()
+        print(Style.BRIGHT + "The area of the circle is: " + str(circleArea) + Style.RESET_ALL)
+        print(Style.BRIGHT + "The circumference of the circle is: " + str(circlePerimeter) + Style.RESET_ALL)
+        print()
+        print(line)
 
       def pathAfterShapeFunc():
         print()
         print("What do you wish to do now?")
         print()
-        print(" - A: Solve another circle")
-        print(" - B: Choose another shape")
-        print(" - C: View the history of all your calculations")
-        pathAfterShape = input()
-        if pathAfterShape == "A" or pathAfterShape == "a":
+        print(" 1) Solve another circle")
+        print(" 2) Choose another shape")
+        print(" 3) View the history of all your calculations")
+        print()
+        pathAfterShape = input(" • Enter (Number): ")
+        if pathAfterShape == "1":
           os.system("clear")
           circle()
-        elif pathAfterShape == "b" or pathAfterShape == "B":
+        elif pathAfterShape == "2":
           os.system("clear")
           main()
-        elif pathAfterShape == "c" or pathAfterShape == "C":
+        elif pathAfterShape == "3":
           os.system("clear")
           inputHistory()
         else:
           os.system("clear")
-          print("This is an invalid response. Please type the letter for your choice.")
+          print(Fore.RED + "This is an invalid response. Please type the letter for your choice." + Style.RESET_ALL)
           pathAfterShapeFunc()
       pathAfterShapeFunc()
     circle()
     
-  elif whichShape == "Parallelogram" or whichShape == "parallelogram":
+  elif whichShape == "Parallelogram" or whichShape == "parallelogram" or whichShape == "4":
     os.system("clear")
     def parallelogram():
-      print("PARALLELOGRAM DIMENSION SELECTION")
+      print(Fore.CYAN + Style.BRIGHT + "PARALLELOGRAM DIMENSION SELECTION" + Style.RESET_ALL)
       print()
       print("What do you wish to find out?")
-      print(" - Area")
-      print(" - Perimeter")
-      print(" - Both")
-      parallelogramSelection = input()
+      print()
+      print(line)
+      print()
+      print(" 1) Area")
+      print(" 2) Perimeter")
+      print(" 3) Both")
+      print()
+      print(line)
+      print()
+      parallelogramSelection = input(" • Enter (Number): ")
       # COMMIT 4 - Added a more advanced parallelogram dimension selection to make it easier for the user.
       # The user can now select if they are wanting to find out the area, perimeter, or both before entering the calculations.
       # Also returns the question if the user inputted an unknown response.
-      if parallelogramSelection == "Area" or parallelogramSelection == "area":
+      if parallelogramSelection == "Area" or parallelogramSelection == "area" or parallelogramSelection == "1":
         os.system("clear")
-        parallelogramBase = input("Please enter the width of the base: ")
-        parallelogramHeight = input("Please enter the length of the height: ")
+        print(Fore.CYAN + Style.BRIGHT + "PARALLELOGRAM AREA DIMENSION SELECTION" + Style.RESET_ALL)
+        print()
+        parallelogramBase = input(" • Please enter the width of the base: ")
+        parallelogramHeight = input(" • Please enter the length of the height: ")
         # COMMIT 8 - Added the mathematical functions for the parallelogram (for the area, perimeter, and both). Question
         # returns if the user inputs an invalid response. This concludes Phase Three, now that all mathematical functions
         # have been put in. However, after calculating each question, the program breaks.
@@ -269,85 +329,102 @@ def main():
         if PBdigit == False or PHdigit == False:
           os.system("clear")
           print()
-          print("Your answers need to be in numbers. Please try again.")
+          print(Fore.RED + "Your answers need to be in numbers. Please try again." + Style.RESET_ALL)
           print()
           parallelogram()
         else:
-          parallelogramCalculation.append("(USER INPUT) Parallelogram Base: " + str(parallelogramBase))
-          parallelogramCalculation.append("(USER INPUT) Parallelogram Height: " + str(parallelogramHeight))
+          parallelogramCalculation.append("►► Parallelogram Base: " + str(parallelogramBase))
+          parallelogramCalculation.append("►► Parallelogram Height: " + str(parallelogramHeight))
           parallelogramArea = float(parallelogramBase) * float(parallelogramHeight)
           print()
-          parallelogramCalculation.append("Parallelogram Area: " + str(parallelogramArea))
-          print("The area of the parallelogram is: " + str(parallelogramArea))
-      elif parallelogramSelection == "perimeter" or parallelogramSelection == "Perimeter":
+          print(line)
+          print()
+          parallelogramCalculation.append("= Parallelogram Area: " + str(parallelogramArea))
+          print(Style.BRIGHT + "The area of the parallelogram is: " + str(parallelogramArea) + Style.RESET_ALL)
+          print()
+          print(line)
+      elif parallelogramSelection == "perimeter" or parallelogramSelection == "Perimeter" or parallelogramSelection == "2":
         os.system("clear")
-        parallelogramSide = input("Please enter the length of the side: ")
-        parallelogramBase = input("Please enter the width of the base: ")
+        print(Fore.CYAN + Style.BRIGHT + "PARALLELOGRAM PERIMETER DIMENSION SELECTION" + Style.RESET_ALL)
+        print()
+        parallelogramSide = input(" • Please enter the length of the side: ")
+        parallelogramBase = input(" • Please enter the width of the base: ")
         PSdigit = parallelogramSide.isdigit()
         PBdigit = parallelogramBase.isdigit()
         if PSdigit == False or PBdigit == False:
           os.system("clear")
           print()
-          print("Your answers need to be in numbers. Please try again.")
+          print(Fore.RED + "Your answers need to be in numbers. Please try again." + Style.RESET_ALL)
           print()
           parallelogram()
         else:
-          parallelogramCalculation.append("(USER INPUT) Parallelogram Base: " + str(parallelogramBase))
-          parallelogramCalculation.append("(USER INPUT) Parallelogram Side: " + str(parallelogramSide))
+          parallelogramCalculation.append("►► Parallelogram Base: " + str(parallelogramBase))
+          parallelogramCalculation.append("►► Parallelogram Side: " + str(parallelogramSide))
           parallelogramPerimeter = 2 * (float(parallelogramSide) + float(parallelogramBase))
           print()
-          parallelogramCalculation.append("Parallelogram Perimeter: " + str(parallelogramPerimeter))
-          print("The perimeter of the parallelogram is: " + str(parallelogramPerimeter))
-      elif parallelogramSelection == "Both" or parallelogramSelection == "both":
+          print(line)
+          print()
+          parallelogramCalculation.append("= Parallelogram Perimeter: " + str(parallelogramPerimeter))
+          print(Style.BRIGHT + "The perimeter of the parallelogram is: " + str(parallelogramPerimeter) + Style.RESET_ALL)
+          print()
+          print(line)
+      elif parallelogramSelection == "Both" or parallelogramSelection == "both" or parallelogramSelection == "3":
         os.system("clear")
-        parallelogramSide = input("Please enter the length of the side: ")
-        parallelogramBase = input("Please enter the width of the base: ")
-        parallelogramHeight = input("Please enter the length of the height: ")
+        print(Fore.CYAN + Style.BRIGHT + "PARALLELOGRAM AREA & PERIMETER DIMENSION SELECTION" + Style.RESET_ALL)
+        print()
+        parallelogramSide = input(" • Please enter the length of the side: ")
+        parallelogramBase = input(" • Please enter the width of the base: ")
+        parallelogramHeight = input(" • Please enter the length of the height: ")
         PSdigit = parallelogramSide.isdigit()
         PBdigit = parallelogramBase.isdigit()
         PHdigit = parallelogramHeight.isdigit()
         if PBdigit == False or PHdigit == False or PSdigit == False:
           os.system("clear")
           print()
-          print("Your answers need to be in numbers. Please try again.")
+          print(Fore.RED + "Your answers need to be in numbers. Please try again." + Style.RESET_ALL)
           print()
           parallelogram()
         else:
-          parallelogramCalculation.append("(USER INPUT) Parallelogram Side: " + str(parallelogramSide))
-          parallelogramCalculation.append("(USER INPUT) Parallelogram Base: " + str(parallelogramBase))
-          parallelogramCalculation.append("(USER INPUT) Parallelogram Height: " + str(parallelogramHeight))
+          parallelogramCalculation.append("►► Parallelogram Side: " + str(parallelogramSide))
+          parallelogramCalculation.append("►► Parallelogram Base: " + str(parallelogramBase))
+          parallelogramCalculation.append("►► Parallelogram Height: " + str(parallelogramHeight))
           parallelogramArea = float(parallelogramBase) * float(parallelogramHeight)
           print()
-          parallelogramCalculation.append("Parallelogram Area: " + str(parallelogramArea))
+          parallelogramCalculation.append("= Parallelogram Area: " + str(parallelogramArea))
           parallelogramPerimeter = 2 * (float(parallelogramSide) + float(parallelogramBase))
-          parallelogramCalculation.append("Parallelogram Perimeter: " + str(parallelogramPerimeter))
-          print("The area of the parallelogram is: " + str(parallelogramArea))
-          print("The perimeter of the parallelogram is: " + str(parallelogramPerimeter))
+          parallelogramCalculation.append("= Parallelogram Perimeter: " + str(parallelogramPerimeter))
+          print(line)
+          print()
+          print(Style.BRIGHT + "The area of the parallelogram is: " + str(parallelogramArea) + Style.RESET_ALL)
+          print(Style.BRIGHT + "The perimeter of the parallelogram is: " + str(parallelogramPerimeter) + Style.RESET_ALL)
+          print()
+          print(line)
       else:
         os.system("clear")
-        print("This is not a valid answer.")
+        print(Fore.RED + "This is not a valid answer." + Style.RESET_ALL)
         parallelogram()
 
       def pathAfterShapeFunc():
         print()
         print("What do you wish to do now?")
         print()
-        print(" - A: Solve another parallelogram")
-        print(" - B: Choose another shape")
-        print(" - C: View the history of all your calculations")
-        pathAfterShape = input()
-        if pathAfterShape == "A" or pathAfterShape == "a":
+        print(" 1) Solve another parallelogram")
+        print(" 2) Choose another shape")
+        print(" 3) View the history of all your calculations")
+        print()
+        pathAfterShape = input("Enter (Number): ")
+        if pathAfterShape == "1":
           os.system("clear")
           parallelogram()
-        elif pathAfterShape == "b" or pathAfterShape == "B":
+        elif pathAfterShape == "2":
           os.system("clear")
           main()
-        elif pathAfterShape == "c" or pathAfterShape == "C":
+        elif pathAfterShape == "3":
           os.system("clear")
           inputHistory()
         else:
           os.system("clear")
-          print("This is an invalid response. Please type the letter for your choice.")
+          print(Fore.RED + "This is an invalid response. Please type the letter for your choice." + Style.RESET_ALL)
           pathAfterShapeFunc()
       pathAfterShapeFunc()
     parallelogram()
@@ -355,7 +432,7 @@ def main():
     
   else:
     os.system("clear")
-    print("This is not a valid shape. Please try again.")
+    print(Fore.RED + "This is not a valid shape. Please try again." + Style.RESET_ALL)
     main()
 
 # COMMIT 10 - The user can now choose to be directed to inputHistory after the calculations are made. A new "calculations"
@@ -377,19 +454,27 @@ parallelogramCalculation = []
 def inputHistory():
   os.system("clear")
   print()
-  print("All previous calculations:")
+  print(Style.BRIGHT + Fore.CYAN + "ALL PREVIOUS CALCULATIONS" + Style.RESET_ALL)
+  print()
+  print(line)
   print()
   for gap1 in rectangleCalculation:
+    time.sleep(0.05)
     print(gap1)
   print()
   for gap2 in triangleCalculation:
+    time.sleep(0.05)
     print(gap2)
   print()
   for gap3 in circleCalculation:
+    time.sleep(0.05)
     print(gap3)
   print()
   for gap4 in parallelogramCalculation:
+    time.sleep(0.05)
     print(gap4)
+  print()
+  print(line)
   print()
   # COMMIT 12 - Added the final component to Phase Five. After the calculation history is shown, the user can now
   # return back to the shape selection by pressing enter. The question returns if the user inputs an invalid answer.
@@ -397,13 +482,13 @@ def inputHistory():
   # Extensive bug-testing for every possible outcome has taken place for this code, and no bugs, glitches or errors
   # have been found.
   def afterHistoryLoop():
-    print("Please press enter to return to the shape selection.")
-    enterAfterHistory = input()
+    print()
+    enterAfterHistory = input(" • Press <enter> to return to the shape selection: ")
     if enterAfterHistory == (""):
       os.system("clear")
       main()
     else:
-      print("This is not a valid answer.")
+      print(Fore.RED + "This is not a valid answer." + Style.RESET_ALL)
       afterHistoryLoop()
   afterHistoryLoop()
 
@@ -413,48 +498,66 @@ def inputHistory():
 # If the user wishes to view the instructions, the program shows a list of information about the program.
 # Once the user finishes with the instructions, they are able to continue to main.
 
-print("Ⓒ Area & Perimeter Calculator Tool Python Program created and authorised by Liam Pettigrew for personal and educational use.")
+# COMMIT 14 - Majorly improved the UI of the program, to make it more user-friendly, easy to use, and accessible.
+# I achieved this by adding colours to to program using "colorama" to distinguish titles with instructions, options, information, etc.
+# I also added lines to separate options and instructions with commands, as well as bullet points to signal where to type.
+# Some of the code has also be changed from a worded or lettered response to a simpler numbered system, where the user can simply
+# Type the number of their choice. E.g. Before, the user had to type either "instructions" or "continue" at the start of the
+# program, whereas now, they can simply type "1" or "2". This number system is now consistent throughout the program, replacing
+# "a, b, c" options with "1, 2, 3". The calculation history screen has also had a big UI change to make it more easily understandable.
+# Time.Sleeps have also been implemented for style reasons.
+
+print(Style.DIM + "Ⓒ Area & Perimeter Calculator Tool Python Program created and authorised by Liam Pettigrew for personal and educational use.")
 print("Ⓒ All efforts that went into this program and relating documents are rightfully belonged to Liam Pettigrew.")
-print("Ⓒ Program first created in July 2022 for Fraser High School.")
+print("Ⓒ Program first created in July 2022 for Fraser High School." + Style.RESET_ALL)
 print()
-print("Welcome to Area & Perimeter Calculator Tool.")
+print(Fore.CYAN + Style.BRIGHT + "\nWelcome to Area & Perimeter Calculator Tool." + Style.RESET_ALL)
 def start():
   print("Do you wish to view the instructions to the program or continue to the shape selection?")
   print()
-  print(" - Instructions")
-  print(" - Continue")
-  instructionsOrContinue = input()
+  print(line)
+  print()
+  print(" 1) Instructions")
+  print(" 2) Continue")
+  print()
+  print(line)
+  print()
+  instructionsOrContinue = input(" • Enter (Number): ")
     
-  if instructionsOrContinue == "continue" or instructionsOrContinue == "Continue":
+  if instructionsOrContinue == "continue" or instructionsOrContinue == "Continue" or instructionsOrContinue == "2":
     # COMMIT 13 - Added the "system" plugin. The code now clears the screen after every input to keep it looking tidy.
     os.system("clear")
     main()
   
-  elif instructionsOrContinue == "instructions" or instructionsOrContinue == "Instructions":
+  elif instructionsOrContinue == "instructions" or instructionsOrContinue == "Instructions" or instructionsOrContinue == "1":
     os.system("clear")
     print()
-    print("PROGRAM INSTRUCTIONS")
+    print(Fore.CYAN + Style.BRIGHT + "PROGRAM INSTRUCTIONS" + Style.RESET_ALL)
+    print()
+    print(line)
     print()
     print("The Area & Perimeter Calculator Tool, created by Liam Pettigrew, is an excellent way for students to check their mathematics work.")
     print("This program offers a list of rectangle, triangle, circle, and parallelogram. You can then input the known dimenstions, and the program will fully work out the area and perimeter.")
     print()
+    print(line)
+    print()
     print("Are you ready to continue to the shape selection?")
     print()
     def afterInstructionsLoop():
-      print(" - Press Enter")
+      print(" • Press <enter>")
       continueAfterInstructions = input()
       if continueAfterInstructions == (""):
         os.system("clear")
         main()
       else:
-        print("This is not a valid answer.")
+        print(Fore.RED + "This is not a valid answer." + Style.RESET_ALL)
         afterInstructionsLoop()
     afterInstructionsLoop()
   
   else:
     os.system("clear")
     print()
-    print("This is not a valid response. Please try again.")
+    print(Fore.RED + "This is not a valid response. Please try again." + Style.RESET_ALL)
     print()
     start()
 start()
