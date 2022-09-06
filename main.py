@@ -1,4 +1,13 @@
 # Area / Perimeter Python Tool - Created by Liam Pettigrew
+
+# FINAL COMMIT - The program has been thoroughly tested and trialed for any bugs or errors.
+# Every path possible for the program has been tested, and no ValueErrors, syntax errors, exceptions,
+# typographical errors, etc have been found, for any invalid answers inputted. A few minor parts of
+# the code were fixed to make the program more polished, clean, and eliminate any bugs for the final
+# product.
+
+# NOTE: Beginning of the code is in line 528.
+
 import math
 import os
 from colorama import Fore, Back, Style
@@ -458,21 +467,30 @@ def inputHistory():
   print()
   print(line)
   print()
-  for gap1 in rectangleCalculation:
-    time.sleep(0.05)
-    print(gap1)
-  print()
-  for gap2 in triangleCalculation:
-    time.sleep(0.05)
-    print(gap2)
-  print()
-  for gap3 in circleCalculation:
-    time.sleep(0.05)
-    print(gap3)
-  print()
-  for gap4 in parallelogramCalculation:
-    time.sleep(0.05)
-    print(gap4)
+  # FINAL COMMIT - Tidied up the calculation history by implementing "lens".
+  if len(rectangleCalculation) > 1:
+    print("RECTANGLE:")
+    for gap1 in rectangleCalculation:
+      time.sleep(0.05)
+      print(gap1)
+  if len(triangleCalculation):
+    print()
+    print("TRIANGLE:")
+    for gap2 in triangleCalculation:
+      time.sleep(0.05)
+      print(gap2)
+  if len(circleCalculation):
+    print()
+    print("CIRCLE:")
+    for gap3 in circleCalculation:
+      time.sleep(0.05)
+      print(gap3)
+  if len(parallelogramCalculation):
+    print()
+    print("PARALLELOGRAM:")
+    for gap4 in parallelogramCalculation:
+      time.sleep(0.05)
+      print(gap4)
   print()
   print(line)
   print()
@@ -508,10 +526,10 @@ def inputHistory():
 # Time.Sleeps have also been implemented for style reasons.
 
 print(Style.DIM + "Ⓒ Area & Perimeter Calculator Tool Python Program created and authorised by Liam Pettigrew for personal and educational use.")
-print("Ⓒ All efforts that went into this program and relating documents are rightfully belonged to Liam Pettigrew.")
+print("Ⓒ All program code was written, implemented, and rightfully belong to Liam Pettigrew, the creator of the program.")
 print("Ⓒ Program first created in July 2022 for Fraser High School." + Style.RESET_ALL)
 print()
-print(Fore.CYAN + Style.BRIGHT + "\nWelcome to Area & Perimeter Calculator Tool." + Style.RESET_ALL)
+print(Fore.CYAN + Style.BRIGHT + "\nWelcome to the Area & Perimeter Calculator Tool." + Style.RESET_ALL)
 def start():
   print("Do you wish to view the instructions to the program or continue to the shape selection?")
   print()
@@ -527,6 +545,7 @@ def start():
   if instructionsOrContinue == "continue" or instructionsOrContinue == "Continue" or instructionsOrContinue == "2":
     # COMMIT 13 - Added the "system" plugin. The code now clears the screen after every input to keep it looking tidy.
     os.system("clear")
+    # MAIN() IS AT LINE 16
     main()
   
   elif instructionsOrContinue == "instructions" or instructionsOrContinue == "Instructions" or instructionsOrContinue == "1":
@@ -559,6 +578,7 @@ def start():
       continueAfterInstructions = input()
       if continueAfterInstructions == (""):
         os.system("clear")
+        # MAIN() IS AT LINE 16
         main()
       else:
         print(Fore.RED + "This is not a valid answer." + Style.RESET_ALL)
@@ -571,4 +591,6 @@ def start():
     print(Fore.RED + "This is not a valid response. Please try again." + Style.RESET_ALL)
     print()
     start()
+
+# START TO THE CODE
 start()
